@@ -247,3 +247,33 @@ if (TT$p.value < 0.05) {
   cat("There is no significant difference between the sample mean and the hypothesized mean.\n")
 }
 
+#anova one way
+an1<-lm(Volume~Height)
+anova(an1)
+
+#anova two way      
+an2<-lm(Volume~ Height*Girth)
+anova(an2)
+
+
+#F test
+result <- var.test(Volume, Height, ratio = 2, alternative = "two.sided")
+result
+
+result <- var.test(Volume, Height, ratio = 1, alternative = "two.sided")
+result
+
+
+#chisq.test(table(Volume,Height))
+
+#correaltion Test
+cor.test(Volume, Girth, method = "pearson")
+cor.test(Height, Volume, method = "spearman")
+
+#pricipal component analysis
+prcomp(df)
+
+#Factor Analysis
+factanal(df, factors = 1)
+
+
